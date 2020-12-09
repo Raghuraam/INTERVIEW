@@ -33,6 +33,14 @@ public class StringCalculatorTest extends TestCase {
 		Assert.assertEquals(6, StringCalculator.Add("1\n2,3"));
 		
 	}
+	
+	/**
+	 * to support different delimiters
+	 */
+	public void testCase4(){
+		
+		Assert.assertEquals(3, StringCalculator.Add(";\n1;2"));
+	}
 		
 
 }
