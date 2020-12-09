@@ -24,6 +24,15 @@ public class StringCalculatorTest extends TestCase {
 		Assert.assertEquals(10, StringCalculator.Add("1,2,3,4"));
 		Assert.assertEquals(155, StringCalculator.Add("1,2,3,4,5,6,7,8,9,10,100"));
 	}
+	
+	/**
+	 * to test unknown amount of inputs
+	 */
+	public void testCase3(){
+		
+		Assert.assertEquals(6, StringCalculator.Add("1\n2,3"));
+		
+	}
 		
 
 }

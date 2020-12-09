@@ -9,7 +9,7 @@ public class StringCalculator {
 			return 0;
 		}
 
-		String[] array = numbers.split(",");
+		String[] array = numbers.split(",|\\n");
 
 		for (String n : array) {
 
