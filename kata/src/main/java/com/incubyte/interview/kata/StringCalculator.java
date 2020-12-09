@@ -1,8 +1,5 @@
 package com.incubyte.interview.kata;
 
-import java.util.function.IntPredicate;
-import java.util.function.Predicate;
-
 public class StringCalculator {
  
 	public static int Add(String numbers) {
