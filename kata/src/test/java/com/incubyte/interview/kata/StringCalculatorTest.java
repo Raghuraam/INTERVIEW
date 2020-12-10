@@ -56,11 +56,17 @@ public class StringCalculatorTest extends TestCase {
 		Assert.assertEquals(0, StringCalculator.Add(";\n-1;-2;-5"));
 	}
 	
+	public void testCase7(){
+		Assert.assertEquals(6, StringCalculator.Add(";\n1;-2;-5;5;1005"));
+		Assert.assertNotSame(1005, StringCalculator.Add("1005"));
+	}
+	
 	/**
 	 * to get called count for Add method
 	 */
-	public void testCase7(){
-		Assert.assertEquals(10, StringCalculator.getCalledCount());
+	public void testCase8(){
+		
+		Assert.assertNotSame(0, StringCalculator.getCalledCount());
 	}
 
 }

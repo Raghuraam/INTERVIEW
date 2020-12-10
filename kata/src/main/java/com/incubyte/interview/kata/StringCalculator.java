@@ -20,12 +20,14 @@ public class StringCalculator {
 			}
 			
 				try {
-					
-					if(Integer.parseInt(n)<0){
+					int temp = Integer.parseInt(n);
+					if(temp<0){
 						throw new Exception("negatives not allowed "+n);	
+					}else if(temp>1000){
+						continue;
 					}
 					
-					total = total + Integer.parseInt(n);
+					total = total + temp;
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
