@@ -55,5 +55,12 @@ public class StringCalculatorTest extends TestCase {
 	public void testCase6(){
 		Assert.assertEquals(0, StringCalculator.Add(";\n-1;-2;-5"));
 	}
+	
+	/**
+	 * to get called count for Add method
+	 */
+	public void testCase7(){
+		Assert.assertEquals(10, StringCalculator.getCalledCount());
+	}
 
 }

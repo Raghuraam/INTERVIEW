@@ -2,8 +2,11 @@ package com.incubyte.interview.kata;
 
 public class StringCalculator {
  
+	private static int count;
 	public static int Add(String numbers) {
-
+		
+		count++;
+		
 		int total = 0;
 		if (numbers == null || numbers.isEmpty()) {
 			return 0;
@@ -30,6 +33,11 @@ public class StringCalculator {
 		}
 
 		return total;
+	}
+	
+	public static int getCalledCount(){
+		
+		return count;
 	}
 
 	public static void main(String[] args) {
