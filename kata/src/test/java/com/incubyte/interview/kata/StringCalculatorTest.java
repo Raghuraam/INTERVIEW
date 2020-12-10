@@ -41,6 +41,19 @@ public class StringCalculatorTest extends TestCase {
 		
 		Assert.assertEquals(3, StringCalculator.Add(";\n1;2"));
 	}
-		
+	
+	/**
+	 * to exclude negative numbers
+	 */
+	public void testCase5(){
+		Assert.assertEquals(3, StringCalculator.Add(";\n1;2;-5"));
+	}
+	
+	/**
+	 * to exclude all negative numbers
+	 */
+	public void testCase6(){
+		Assert.assertEquals(0, StringCalculator.Add(";\n-1;-2;-5"));
+	}
 
 }

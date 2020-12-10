@@ -15,7 +15,17 @@ public class StringCalculator {
 			if(n.equals(" ") || n.isEmpty()){
 				continue;
 			}
-			total = total + Integer.parseInt(n);	
+			
+				try {
+					
+					if(Integer.parseInt(n)<0){
+						throw new Exception("negatives not allowed "+n);	
+					}
+					
+					total = total + Integer.parseInt(n);
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
 			
 		}
 
