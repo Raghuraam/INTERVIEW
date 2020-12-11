@@ -3,6 +3,17 @@ package com.incubyte.interview.kata;
 public class StringCalculator {
  
 	private static int count;
+	
+	private static String escapedDelimiter(String str) {
+		String resultStr = "";
+		
+		for(int i=0; i<str.length(); i++) {
+			resultStr = resultStr+"\\"+str.charAt(i);
+		}
+		return resultStr;
+		
+	}
+	
 	public static int Add(String numbers) {
 		
 		count++;
@@ -12,7 +23,24 @@ public class StringCalculator {
 			return 0;
 		}
 
-		String[] array = numbers.split(",|\\n|;");
+		String[] array = null;
+		int delimieterIndex = 0;
+		String delimiter;
+		
+		if(numbers.indexOf('[')!=-1 && numbers.indexOf('[')==0) {
+			
+			delimieterIndex = numbers.indexOf(']');
+			delimiter = numbers.substring(1, delimieterIndex);
+			array = numbers.split("\n");
+			array = array[1].split(escapedDelimiter(delimiter));
+		}
+		else if(numbers.indexOf('\n')!=-1 && numbers.indexOf('\n')==0) {
+			delimieterIndex = numbers.indexOf('\n');
+			delimiter = numbers.substring(0, delimieterIndex);
+			array = numbers.split(delimiter);
+		} else {
+			array = numbers.split(",|\\n|;");
+		}
 
 		for (String n : array) {
 			if(n.equals(" ") || n.isEmpty()){

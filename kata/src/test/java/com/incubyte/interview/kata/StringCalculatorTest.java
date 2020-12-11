@@ -68,5 +68,14 @@ public class StringCalculatorTest extends TestCase {
 		
 		Assert.assertNotSame(0, StringCalculator.getCalledCount());
 	}
+	
+	/**
+	 * to support longer length delimiter
+	 */
+	public void testCase9(){
+		Assert.assertEquals(6, StringCalculator.Add("[***]\n1***2***3"));
+		Assert.assertEquals(106, StringCalculator.Add("[---]\n1---2---3---100"));
+	}
+		
 
 }
