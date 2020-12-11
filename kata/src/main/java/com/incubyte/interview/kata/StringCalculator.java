@@ -1,5 +1,8 @@
 package com.incubyte.interview.kata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
  
 	private static int count;
@@ -8,12 +11,20 @@ public class StringCalculator {
 		String resultStr = "";
 		
 		for(int i=0; i<str.length(); i++) {
-			resultStr = resultStr+"\\"+str.charAt(i);
+			
+			if(str.charAt(i)=='|'){
+				resultStr = resultStr+str.charAt(i);
+			}else{
+				resultStr = resultStr+"\\"+str.charAt(i);	
+			}
+				
+			
+			
 		}
 		return resultStr;
 		
 	}
-	
+
 	public static int Add(String numbers) {
 		
 		count++;
@@ -24,20 +35,35 @@ public class StringCalculator {
 		}
 
 		String[] array = null;
-		int delimieterIndex = 0;
-		String delimiter;
+		List<String> demiliterList = new ArrayList<String>();
 		
-		if(numbers.indexOf('[')!=-1 && numbers.indexOf('[')==0) {
+		if(numbers.charAt(0)=='['){
 			
-			delimieterIndex = numbers.indexOf(']');
-			delimiter = numbers.substring(1, delimieterIndex);
-			array = numbers.split("\n");
-			array = array[1].split(escapedDelimiter(delimiter));
+		array = numbers.split("\n");
+		String delimitersString = array[0];
+		
+		String temp = "";
+		for(int i=0; i<delimitersString.length(); i++){
+			
+			if(delimitersString.charAt(i)!='[' && delimitersString.charAt(i)!=']'){
+				temp = temp+delimitersString.charAt(i);
+			}else if(delimitersString.charAt(i)==']'){
+				demiliterList.add(temp.trim());
+				temp="";
+			}
 		}
-		else if(numbers.indexOf('\n')!=-1 && numbers.indexOf('\n')==0) {
-			delimieterIndex = numbers.indexOf('\n');
-			delimiter = numbers.substring(0, delimieterIndex);
-			array = numbers.split(delimiter);
+		
+		String escapedDelimiter = "";
+		for(String each: demiliterList){
+			
+			escapedDelimiter = escapedDelimiter+each+"|";
+			
+		}
+		
+		escapedDelimiter = escapedDelimiter.substring(0, escapedDelimiter.length()-1);
+		
+		array = array[1].split(escapedDelimiter(escapedDelimiter));
+
 		} else {
 			array = numbers.split(",|\\n|;");
 		}
@@ -72,7 +98,7 @@ public class StringCalculator {
 
 	public static void main(String[] args) {
 		
-	
+		
 	}
 
 }

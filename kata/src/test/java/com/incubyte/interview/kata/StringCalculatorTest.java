@@ -76,6 +76,16 @@ public class StringCalculatorTest extends TestCase {
 		Assert.assertEquals(6, StringCalculator.Add("[***]\n1***2***3"));
 		Assert.assertEquals(106, StringCalculator.Add("[---]\n1---2---3---100"));
 	}
+	
+	/**
+	 * to handle multiple delimiters
+	 */
+	public void testCase10(){
+		Assert.assertEquals(6, StringCalculator.Add("[**][%%]\n1**2%%3"));
+		Assert.assertEquals(6, StringCalculator.Add("[*][%]\n1*2%3"));
+		Assert.assertEquals(1000, StringCalculator.Add("[*][%]\n1000*2000%3000"));
+		Assert.assertEquals(0, StringCalculator.Add("[*][%]\n1001*2000%3000"));
+	}
 		
 
 }
