@@ -1,0 +1,78 @@
+http://localhost:8080/hello
+
+Welcome to Online Movie Booking System
+
+----------------------------------
+http://localhost:8080/getMovies
+[
+	{
+		"id": 1,
+		"name": "Master",
+		"rating": 7,
+		"ticketAmount": 100
+	},
+	{
+		"id": 2,
+		"name": "Soorarai potru",
+		"rating": 8,
+		"ticketAmount": 70
+	}
+]
+
+----------------------------------
+http://localhost:8080/getShows
+
+[
+	{
+		"show_id": 1,
+		"movie_name": "Master",
+		"show_timing": "02 Mar 2021, 10:00 AM - 12:00PM",
+		"cinema_name": "Sathyam",
+		"seats_available": [
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10
+		]
+	}
+]
+
+----------------------------------
+http://localhost:8080/bookShow
+
+{
+"showId":1,
+"userId":1,
+"seatNo":[1,2]
+}
+
+response bookingId
+
+-----------------------------------
+
+http://localhost:8080/payForSeat
+
+{
+"bookingId":19,
+"userId":1
+}
+
+response boolean
+-----------------------------------
+http://localhost:8080/getBooking/{bookingId}
+{
+	"showId": 1,
+	"seats": [
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8"
+	],
+	"seatConfimed": true
+}	
